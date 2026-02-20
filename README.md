@@ -1,3 +1,9 @@
+[program 1 W.A.P to add 2 number](#assi1)
+
+
+[program 2 W.A.P to sub 2 number](#assi2)
+
+##ASSI 1
 ```
 public class Addition {
     public static void main(String[] args) {
@@ -16,6 +22,7 @@ public class Addition {
 ```
 <img width="747" height="288" alt="image" src="https://github.com/user-attachments/assets/6f138757-5e2c-4254-85c9-0bc9b77002f5" />
 
+##ASSI 2
 ```
 public class Subtraction {
     public static void main(String[] args) {
