@@ -1,17 +1,14 @@
 [program 1 W.A.P to add 2 number](#assi1)
 
-
 [program 2 W.A.P to sub 2 number](#assi2)
-
 
 [program 3 WAP to Add Numbers Using Methods and Additional Class](#assi3)
 
-
 [program 4 WAP to Add Two Distances (m, cm, mm)](#assi4) 
 
-
-
 [program 5 WAP to Add Two times (hr, min, sec)](#assi5) 
+
+[program 6 WAP to Reverse 1D Array](#assi6)
 
 
 ## assi1
@@ -155,3 +152,35 @@ public class Time {
 }
 ```
 <img width="832" height="238" alt="image" src="https://github.com/user-attachments/assets/e577d706-3bed-4006-b209-8b8ec0f7e44a" />
+
+## assi6
+```
+public class ReverseArray {
+
+    void reverse(int arr[]) {
+
+        System.out.println("Reversed Array:");
+
+        for(int i = arr.length - 1; i >= 0; i--) {
+            System.out.print(arr[i] + " ");
+        }
+    }
+
+    public static void main(String[] args) {
+
+        int arr[] = {1,2,3,4,5};
+
+        System.out.println("Original Array:");
+
+        for(int i = 0; i < arr.length; i++) {
+            System.out.print(arr[i] + " ");
+        }
+
+        System.out.println();
+
+        ReverseArray obj = new ReverseArray();
+        obj.reverse(arr);
+    }
+}
+```
+<img width="932" height="249" alt="image" src="https://github.com/user-attachments/assets/bffa0674-75a4-4a82-8ae9-94156732e578" />
