@@ -7,6 +7,9 @@
 [program 3 WAP to Add Numbers Using Methods and Additional Class](#assi3)
 
 
+[program 4 WAP to Add Two Distances (m, cm, mm)](#assi4) 
+
+
 ## assi1
 ```
 public class Addition {
@@ -65,3 +68,44 @@ public class AddNumbers {
 
 ```
 <img width="872" height="343" alt="image" src="https://github.com/user-attachments/assets/55f01091-167d-4b09-b2b6-7282e019d7d8" />
+
+## assi4
+```
+public class Distance {
+
+    int m, cm, mm;
+
+    void addDistance(Distance d1, Distance d2) {
+
+        mm = d1.mm + d2.mm;
+        cm = d1.cm + d2.cm + mm / 10;
+        mm = mm % 10;
+
+        m = d1.m + d2.m + cm / 100;
+        cm = cm % 100;
+    }
+
+    void display() {
+        System.out.println("Distance = " + m + " m " + cm + " cm " + mm + " mm");
+    }
+
+    public static void main(String[] args) {
+
+        Distance d1 = new Distance();
+        Distance d2 = new Distance();
+        Distance result = new Distance();
+
+        d1.m = 2;
+        d1.cm = 50;
+        d1.mm = 8;
+
+        d2.m = 3;
+        d2.cm = 40;
+        d2.mm = 7;
+
+        result.addDistance(d1, d2);
+        result.display();
+    }
+}
+```
+<img width="868" height="307" alt="image" src="https://github.com/user-attachments/assets/0cca2db3-44ed-4b4c-9319-45b11c47a4e3" />
