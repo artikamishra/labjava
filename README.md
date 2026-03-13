@@ -10,6 +10,10 @@
 [program 4 WAP to Add Two Distances (m, cm, mm)](#assi4) 
 
 
+
+[program 5 WAP to Add Two times (hr, min, sec)](#assi5) 
+
+
 ## assi1
 ```
 public class Addition {
@@ -109,3 +113,45 @@ public class Distance {
 }
 ```
 <img width="868" height="307" alt="image" src="https://github.com/user-attachments/assets/0cca2db3-44ed-4b4c-9319-45b11c47a4e3" />
+
+
+## assi5
+```
+public class Time {
+
+    int hr, min, sec;
+
+    void addTime(Time t1, Time t2) {
+
+        sec = t1.sec + t2.sec;
+        min = t1.min + t2.min + sec / 60;
+        sec = sec % 60;
+
+        hr = t1.hr + t2.hr + min / 60;
+        min = min % 60;
+    }
+
+    void display() {
+        System.out.println("Time = " + hr + ":" + min + ":" + sec);
+    }
+
+    public static void main(String[] args) {
+
+        Time t1 = new Time();
+        Time t2 = new Time();
+        Time result = new Time();
+
+        t1.hr = 2;
+        t1.min = 45;
+        t1.sec = 30;
+
+        t2.hr = 1;
+        t2.min = 20;
+        t2.sec = 40;
+
+        result.addTime(t1, t2);
+        result.display();
+    }
+}
+```
+<img width="832" height="238" alt="image" src="https://github.com/user-attachments/assets/e577d706-3bed-4006-b209-8b8ec0f7e44a" />
