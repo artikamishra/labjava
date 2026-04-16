@@ -12,6 +12,8 @@
 
 [program 7 calculator using class and object](#assi7)
 
+[program 8 Matrix Operations (Transpose, Addition, Row/Column/Diagonal Sum)](#assi8)
+
 ## assi1
 ```
 public class Addition {
@@ -228,3 +230,75 @@ class Main {
 }
 ```
 <img width="413" height="241" alt="image" src="https://github.com/user-attachments/assets/fa13e307-18a5-4e49-83ae-f0d3b64b619a" />
+
+## assi8
+```
+class Matrix {
+    int a[][] = {{1,2,3},{4,5,6},{7,8,9}};
+    int b[][] = {{9,8,7},{6,5,4},{3,2,1}};
+    int c[][] = new int[3][3];
+
+    void add() {
+        for(int i=0;i<3;i++)
+            for(int j=0;j<3;j++)
+                c[i][j]=a[i][j]+b[i][j];
+
+        System.out.println("Addition:");
+        display(c);
+    }
+
+    void transpose() {
+        System.out.println("Transpose:");
+        for(int i=0;i<3;i++){
+            for(int j=0;j<3;j++)
+                System.out.print(a[j][i]+" ");
+            System.out.println();
+        }
+    }
+
+    void rowSum() {
+        for(int i=0;i<3;i++){
+            int sum=0;
+            for(int j=0;j<3;j++)
+                sum+=a[i][j];
+            System.out.println("Row "+i+" sum="+sum);
+        }
+    }
+
+    void colSum() {
+        for(int i=0;i<3;i++){
+            int sum=0;
+            for(int j=0;j<3;j++)
+                sum+=a[j][i];
+            System.out.println("Column "+i+" sum="+sum);
+        }
+    }
+
+    void diagonalSum() {
+        int sum=0;
+        for(int i=0;i<3;i++)
+            sum+=a[i][i];
+        System.out.println("Diagonal sum="+sum);
+    }
+
+    void display(int x[][]) {
+        for(int i=0;i<3;i++){
+            for(int j=0;j<3;j++)
+                System.out.print(x[i][j]+" ");
+            System.out.println();
+        }
+    }
+}
+
+class Main {
+    public static void main(String args[]) {
+        Matrix m = new Matrix();
+        m.add();
+        m.transpose();
+        m.rowSum();
+        m.colSum();
+        m.diagonalSum();
+    }
+}
+```
+<img width="537" height="601" alt="image" src="https://github.com/user-attachments/assets/0ffe3826-bbbd-4bb0-8d18-431faff13ea3" />
