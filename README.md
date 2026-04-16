@@ -10,6 +10,7 @@
 
 [program 6 WAP to Reverse 1D Array](#assi6)
 
+[program 7 calculator using class and object](#assi7)
 
 ## assi1
 ```
@@ -184,3 +185,46 @@ public class ReverseArray {
 }
 ```
 <img width="932" height="249" alt="image" src="https://github.com/user-attachments/assets/bffa0674-75a4-4a82-8ae9-94156732e578" />
+
+
+## assi7
+```
+class Calculator {
+    int a, b;
+
+    Calculator(int x, int y) {
+        a = x;
+        b = y;
+    }
+
+    void add() {
+        System.out.println("Addition = " + (a + b));
+    }
+
+    void sub() {
+        System.out.println("Subtraction = " + (a - b));
+    }
+
+    void mul() {
+        System.out.println("Multiplication = " + (a * b));
+    }
+
+    void div() {
+        if (b != 0)
+            System.out.println("Division = " + (a / b));
+        else
+            System.out.println("Division not possible");
+    }
+}
+
+class Main {
+    public static void main(String args[]) {
+        Calculator obj = new Calculator(10, 5);
+        obj.add();
+        obj.sub();
+        obj.mul();
+        obj.div();
+    }
+}
+```
+<img width="413" height="241" alt="image" src="https://github.com/user-attachments/assets/fa13e307-18a5-4e49-83ae-f0d3b64b619a" />
