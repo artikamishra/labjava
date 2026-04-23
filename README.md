@@ -30,7 +30,7 @@
 
 [program 16 WAP for Addition of 2 Numbers using Swing](#assi16)
 
-[program 17 WAP for Registration Form + JDBC (Basic) ](#assi17)
+[program 17 WAP for Registration Form  ](#assi17)
 
 [program 18 WAP for Calculator in Swing ](#assi18)
 
@@ -566,28 +566,342 @@ class Main {
 
 ## assi16
 ```
+import javax.swing.*;
+import java.awt.event.*;
 
+class AddGUI extends JFrame implements ActionListener {
+    JTextField t1,t2,t3;
+    JButton b;
+
+    AddGUI() {
+        t1 = new JTextField();
+        t2 = new JTextField();
+        t3 = new JTextField();
+        b = new JButton("Add");
+
+        t1.setBounds(50,50,100,30);
+        t2.setBounds(50,100,100,30);
+        t3.setBounds(50,150,100,30);
+        b.setBounds(50,200,100,30);
+
+        add(t1); add(t2); add(t3); add(b);
+        b.addActionListener(this);
+
+        setSize(300,300);
+        setLayout(null);
+        setVisible(true);
+    }
+
+    public void actionPerformed(ActionEvent e) {
+        int a = Integer.parseInt(t1.getText());
+        int b = Integer.parseInt(t2.getText());
+        t3.setText(String.valueOf(a+b));
+    }
+
+    public static void main(String args[]) {
+        new AddGUI();
+    }
+}
 ```
+<img width="182" height="317" alt="image" src="https://github.com/user-attachments/assets/321aa53a-7c56-4041-86b2-facb51028dbd" />
 
 ## assi17
 ```
+import javax.swing.*;
+import java.awt.event.*;
+
+class Register extends JFrame implements ActionListener {
+
+    JTextField name, age;
+    JRadioButton male, female;
+    JButton submit;
+
+    Register() {
+        setLayout(null);
+
+        JLabel l1 = new JLabel("Name:");
+        JLabel l2 = new JLabel("Age:");
+        JLabel l3 = new JLabel("Gender:");
+
+        name = new JTextField();
+        age = new JTextField();
+
+        male = new JRadioButton("Male");
+        female = new JRadioButton("Female");
+
+        ButtonGroup bg = new ButtonGroup();
+        bg.add(male);
+        bg.add(female);
+
+        submit = new JButton("Submit");
+
+        l1.setBounds(50,50,100,30);
+        name.setBounds(150,50,120,30);
+
+        l2.setBounds(50,90,100,30);
+        age.setBounds(150,90,120,30);
+
+        l3.setBounds(50,130,100,30);
+        male.setBounds(150,130,70,30);
+        female.setBounds(220,130,80,30);
+
+        submit.setBounds(150,180,100,30);
+
+        add(l1); add(name);
+        add(l2); add(age);
+        add(l3); add(male); add(female);
+        add(submit);
+
+        submit.addActionListener(this);
+
+        setSize(350,300);
+        setVisible(true);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    }
+
+    public void actionPerformed(ActionEvent e) {
+        String gender = male.isSelected() ? "Male" : "Female";
+
+        JOptionPane.showMessageDialog(this,
+            "Name: " + name.getText() +
+            "\nAge: " + age.getText() +
+            "\nGender: " + gender);
+    }
+
+    public static void main(String args[]) {
+        new Register();
+    }
+}
 
 ```
+<img width="1077" height="561" alt="image" src="https://github.com/user-attachments/assets/2c8b59d5-0523-4836-be20-63b1d06163d7" />
+
 
 ## assi18
 ```
+import javax.swing.*;
+import java.awt.event.*;
 
+class Calc extends JFrame implements ActionListener {
+    JTextField t1,t2,t3;
+    JButton add,sub;
+
+    Calc() {
+        t1=new JTextField(); t2=new JTextField(); t3=new JTextField();
+        add=new JButton("+"); sub=new JButton("-");
+
+        t1.setBounds(50,50,100,30);
+        t2.setBounds(50,100,100,30);
+        t3.setBounds(50,150,100,30);
+        add.setBounds(50,200,50,30);
+        sub.setBounds(110,200,50,30);
+
+        add(t1); add(t2); add(t3); add(add); add(sub);
+
+        add.addActionListener(this);
+        sub.addActionListener(this);
+
+        setSize(300,300);
+        setLayout(null);
+        setVisible(true);
+    }
+
+    public void actionPerformed(ActionEvent e) {
+        int a=Integer.parseInt(t1.getText());
+        int b=Integer.parseInt(t2.getText());
+
+        if(e.getSource()==add)
+            t3.setText(""+(a+b));
+        else
+            t3.setText(""+(a-b));
+    }
+
+    public static void main(String args[]) {
+        new Calc();
+    }
+}
 ```
+<img width="210" height="333" alt="image" src="https://github.com/user-attachments/assets/27adece6-1b51-4323-8267-64d2e70af0cd" />
 
 ## assi19
 ```
+import javax.swing.*;
+import java.awt.event.*;
+
+class Add extends JFrame implements ActionListener {
+
+    JTextField a11,a12,a21,a22;
+    JTextField b11,b12,b21,b22;
+    JTextField r11,r12,r21,r22;
+    JButton add;
+
+    Add() {
+        setLayout(null);
+
+        // Matrix A
+        a11 = new JTextField(); a12 = new JTextField();
+        a21 = new JTextField(); a22 = new JTextField();
+
+        // Matrix B
+        b11 = new JTextField(); b12 = new JTextField();
+        b21 = new JTextField(); b22 = new JTextField();
+
+        // Result Matrix
+        r11 = new JTextField(); r12 = new JTextField();
+        r21 = new JTextField(); r22 = new JTextField();
+
+        add = new JButton("Add");
+
+        // Set bounds (A matrix)
+        a11.setBounds(50,50,40,30);
+        a12.setBounds(100,50,40,30);
+        a21.setBounds(50,90,40,30);
+        a22.setBounds(100,90,40,30);
+
+        // B matrix
+        b11.setBounds(200,50,40,30);
+        b12.setBounds(250,50,40,30);
+        b21.setBounds(200,90,40,30);
+        b22.setBounds(250,90,40,30);
+
+        // Result matrix
+        r11.setBounds(350,50,40,30);
+        r12.setBounds(400,50,40,30);
+        r21.setBounds(350,90,40,30);
+        r22.setBounds(400,90,40,30);
+
+        add.setBounds(200,150,80,30);
+
+        // Add components
+        add(a11); add(a12); add(a21); add(a22);
+        add(b11); add(b12); add(b21); add(b22);
+        add(r11); add(r12); add(r21); add(r22);
+        add(add);
+
+        add.addActionListener(this);
+
+        setSize(500,300);
+        setVisible(true);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    }
+
+    public void actionPerformed(ActionEvent e) {
+        int A11 = Integer.parseInt(a11.getText());
+        int A12 = Integer.parseInt(a12.getText());
+        int A21 = Integer.parseInt(a21.getText());
+        int A22 = Integer.parseInt(a22.getText());
+
+        int B11 = Integer.parseInt(b11.getText());
+        int B12 = Integer.parseInt(b12.getText());
+        int B21 = Integer.parseInt(b21.getText());
+        int B22 = Integer.parseInt(b22.getText());
+
+        r11.setText(""+(A11+B11));
+        r12.setText(""+(A12+B12));
+        r21.setText(""+(A21+B21));
+        r22.setText(""+(A22+B22));
+    }
+
+    public static void main(String args[]) {
+        new Add();
+    }
+}
 
 ```
+<img width="550" height="257" alt="image" src="https://github.com/user-attachments/assets/92e5a267-c2c7-4f69-b011-04b079d1ce74" />
 
 ## assi20
 ```
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
 
+class Shapes extends JFrame implements ActionListener {
+
+    JButton b1,b2,b3,b4,b5,b6,b7,b8,b9,b10;
+    String shape = "";
+
+    Shapes() {
+        setLayout(new FlowLayout());
+
+        // Create 10 buttons
+        b1 = new JButton("Circle");
+        b2 = new JButton("Oval");
+        b3 = new JButton("Rectangle");
+        b4 = new JButton("Square");
+        b5 = new JButton("Line");
+        b6 = new JButton("Arc");
+        b7 = new JButton("RoundRect");
+        b8 = new JButton("Fill Circle");
+        b9 = new JButton("Fill Rect");
+        b10 = new JButton("Clear");
+
+        // Add buttons
+        add(b1); add(b2); add(b3); add(b4); add(b5);
+        add(b6); add(b7); add(b8); add(b9); add(b10);
+
+        // Add action listeners
+        b1.addActionListener(this);
+        b2.addActionListener(this);
+        b3.addActionListener(this);
+        b4.addActionListener(this);
+        b5.addActionListener(this);
+        b6.addActionListener(this);
+        b7.addActionListener(this);
+        b8.addActionListener(this);
+        b9.addActionListener(this);
+        b10.addActionListener(this);
+
+        setSize(500,500);
+        setVisible(true);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    }
+
+    public void actionPerformed(ActionEvent e) {
+        shape = e.getActionCommand(); // get button name
+        repaint(); // call paint()
+    }
+
+    public void paint(Graphics g) {
+        super.paint(g);
+
+        if(shape.equals("Circle"))
+            g.drawOval(200,200,100,100);
+
+        else if(shape.equals("Oval"))
+            g.drawOval(200,200,150,100);
+
+        else if(shape.equals("Rectangle"))
+            g.drawRect(200,200,150,100);
+
+        else if(shape.equals("Square"))
+            g.drawRect(200,200,100,100);
+
+        else if(shape.equals("Line"))
+            g.drawLine(200,200,350,300);
+
+        else if(shape.equals("Arc"))
+            g.drawArc(200,200,100,100,0,180);
+
+        else if(shape.equals("RoundRect"))
+            g.drawRoundRect(200,200,150,100,30,30);
+
+        else if(shape.equals("Fill Circle"))
+            g.fillOval(200,200,100,100);
+
+        else if(shape.equals("Fill Rect"))
+            g.fillRect(200,200,150,100);
+
+        else if(shape.equals("Clear"))
+            repaint();
+    }
+
+    public static void main(String args[]) {
+        new Shapes();
+    }
+}
 ```
+<img width="1352" height="530" alt="image" src="https://github.com/user-attachments/assets/f4f1e1aa-5323-4f33-b7da-d9eb575c4e5e" />
 
 ## assi21
 ```
