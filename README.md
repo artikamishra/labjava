@@ -14,6 +14,13 @@
 
 [program 8 Matrix Operations (Transpose, Addition, Row/Column/Diagonal Sum)](#assi8)
 
+[program 9 Write a class that is having four method for 1-dimensional array. (Input, output 1,out2, reverse).](#assi9)
+
+[program 10 WAP for factorial](#assi10)
+
+[program 11 WAP for Armstrong Number](#assi11)
+
+[program 12 WAP for Palindrome Number](#assi12)
 ## assi1
 ```
 public class Addition {
@@ -302,3 +309,132 @@ class Main {
 }
 ```
 <img width="537" height="601" alt="image" src="https://github.com/user-attachments/assets/0ffe3826-bbbd-4bb0-8d18-431faff13ea3" />
+
+## assi9
+```
+import java.util.*;
+
+class ArrayDemo {
+    int arr[] = new int[5];
+
+    void input() {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter elements:");
+        for(int i=0;i<5;i++)
+            arr[i]=sc.nextInt();
+    }
+
+    void output1() {
+        System.out.println("Array elements:");
+        for(int i=0;i<5;i++)
+            System.out.print(arr[i]+" ");
+    }
+
+    void output2() {
+        System.out.println("\nEven elements:");
+        for(int i=0;i<5;i++)
+            if(arr[i]%2==0)
+                System.out.print(arr[i]+" ");
+    }
+
+    void reverse() {
+        System.out.println("\nReverse array:");
+        for(int i=4;i>=0;i--)
+            System.out.print(arr[i]+" ");
+    }
+}
+
+class Main {
+    public static void main(String args[]) {
+        ArrayDemo obj = new ArrayDemo();
+        obj.input();
+        obj.output1();
+        obj.output2();
+        obj.reverse();
+    }
+}
+```
+<img width="358" height="412" alt="image" src="https://github.com/user-attachments/assets/db02d65f-0e7b-47b5-a47b-d8c697704bfb" />
+
+## assi10
+```
+import java.util.*;
+
+class Factorial {
+    public static void main(String args[]) {
+        int n, fact = 1;
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter number: ");
+        n = sc.nextInt();
+
+        for(int i = 1; i <= n; i++) {
+            fact = fact * i;
+        }
+
+        System.out.println("Factorial = " + fact);
+    }
+}
+
+```
+<img width="357" height="148" alt="image" src="https://github.com/user-attachments/assets/425a5917-2530-4fc4-b21e-ca4bd4dffcd3" />
+
+## assi11
+```
+import java.util.*;
+
+class Armstrong {
+    public static void main(String args[]) {
+        int num, temp, sum = 0, r;
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter number: ");
+        num = sc.nextInt();
+
+        temp = num;
+
+        while(temp > 0) {
+            r = temp % 10;
+            sum = sum + (r * r * r);
+            temp = temp / 10;
+        }
+
+        if(sum == num)
+            System.out.println("Armstrong number");
+        else
+            System.out.println("Not Armstrong");
+    }
+}
+
+```
+<img width="361" height="193" alt="image" src="https://github.com/user-attachments/assets/59a2eecb-426a-40ef-86e7-99f585b70f1f" />
+
+## assi12
+```
+import java.util.*;
+
+class Palindrome {
+    public static void main(String args[]) {
+        int num, temp, rev = 0, r;
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter number: ");
+        num = sc.nextInt();
+
+        temp = num;
+
+        while(temp > 0) {
+            r = temp % 10;
+            rev = rev * 10 + r;
+            temp = temp / 10;
+        }
+
+        if(rev == num)
+            System.out.println("Palindrome");
+        else
+            System.out.println("Not Palindrome");
+    }
+}
+
+```
+<img width="376" height="230" alt="image" src="https://github.com/user-attachments/assets/4f1b28b7-19eb-4083-b75f-162b57e8c86d" />
