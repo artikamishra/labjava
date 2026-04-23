@@ -48,15 +48,15 @@
 
 [program 25 WAP for User Defined Exception (Age Check)](#assi25)
 
-[program 26 WAP for File Handling](#assi26)
+[program 26 WAP for creating a File ](#assi26)
 
-[program 27 WAP for Inheritance + Interface + Abstract Class](#assi27)
+[program 27 WAP for Character by Character Copy in file handeling](#assi27)
 
-[program 28 WAP for ](#assi28)
+[program 28 WAP for Byte by Byte Copy in file handeling](#assi28)
 
-[program 29 WAP for ](#assi29)
+[program 29 WAP for Inheritance + Interface + Abstract Class](#assi29)
 
-[program 30 WAP for ](#assi30)
+
 ## assi1
 ```
 public class Addition {
@@ -905,47 +905,248 @@ class Shapes extends JFrame implements ActionListener {
 
 ## assi21
 ```
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
 
+class PaintApp extends JFrame {
+    int x,y;
+
+    PaintApp() {
+        addMouseMotionListener(new MouseMotionAdapter() {
+            public void mouseDragged(MouseEvent e) {
+                x=e.getX();
+                y=e.getY();
+                Graphics g=getGraphics();
+                g.fillOval(x,y,5,5);
+            }
+        });
+
+        setSize(400,400);
+        setVisible(true);
+    }
+
+    public static void main(String args[]) {
+        new PaintApp();
+    }
+}
 ```
+<img width="587" height="418" alt="image" src="https://github.com/user-attachments/assets/d5800334-831d-4ef3-a04b-a4ea51bce559" />
 
 ## assi22
 ```
+package mypack;
+
+public class A { public void show(){System.out.println("A");}}
+class B { }
+class C { }
+class D { }
+class E { }
+
+import mypack.A;
+
+class Test {
+    public static void main(String args[]) {
+        A obj = new A();
+        obj.show();
+    }
+}
 
 ```
 
 ## assi23
 ```
+package pack;
 
+public class A {
+    public void showA() {
+        System.out.println("This is class A (package)");
+    }
+}
+
+package pack.subpack;
+
+public class B {
+    public void showB() {
+        System.out.println("This is class B (subpackage)");
+    }
+}
+
+import pack.A;
+import pack.subpack.B;
+
+class Test {
+    public static void main(String args[]) {
+        A obj1 = new A();
+        B obj2 = new B();
+
+        obj1.showA();
+        obj2.showB();
+    }
+}
+
+OUTPUT:
+This is class A (package)
+This is class B (subpackage)
 ```
 
 ## assi24
 ```
+class ExDemo {
+    public static void main(String args[]) {
+        try {
+            int arr[] = new int[5];
+            arr[10] = 5;
+        } catch(ArrayIndexOutOfBoundsException e) {
+            System.out.println("Array index out of bound!");
+        }
 
+        try {
+            int x = 10/0;
+        } catch(ArithmeticException e) {
+            System.out.println("Cannot divide by zero!");
+        }
+    }
+}
 ```
+<img width="362" height="187" alt="image" src="https://github.com/user-attachments/assets/0305b5bc-f9ba-4ba4-8ca0-bc153c71b1a5" />
+
 ## assi25
 ```
+class InvalidAgeException extends Exception {
+    InvalidAgeException(String msg) {
+        super(msg);
+    }
+}
 
+public class Test {
+
+    static void checkAge(int age) throws InvalidAgeException {
+        if(age < 18)
+            throw new InvalidAgeException("Not valid age");
+        else
+            System.out.println("Valid age");
+    }
+
+    public static void main(String args[]) {
+        try {
+            checkAge(16);
+        } catch(InvalidAgeException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+}
 ```
+<img width="585" height="143" alt="image" src="https://github.com/user-attachments/assets/4e31537b-53fd-4d33-a152-b546900fe69a" />
+
 ## assi26
 ```
+public class CreateSourceFile {
+    public static void main(String[] args) {
+        try {
+            FileWriter fw = new FileWriter("source.txt");
+
+            fw.write("Hello, this is a sample file.\n");
+            fw.write("This file is used for file copying programs.\n");
+            fw.write("Java File Handling Example.");
+
+            fw.close();
+
+            System.out.println("source.txt file created and data written successfully");
+        } catch (IOException e) {
+            System.out.println(e);
+        }
+    }
+}
 
 ```
+<img width="687" height="165" alt="image" src="https://github.com/user-attachments/assets/3a33b620-89e0-49dc-b756-f6be2121ed5f" />
+
 ## assi27
 ```
+import java.io.*;
 
+public class CharFileCopy {
+    public static void main(String[] args) {
+        try {
+            FileReader fr = new FileReader("source.txt");
+            FileWriter fw = new FileWriter("dest_char.txt");
+
+            int ch;
+
+            // Reads character by character until the end of the file (-1)
+            while ((ch = fr.read()) != -1) {
+                fw.write(ch);
+            }
+
+            fr.close();
+            fw.close();
+
+            System.out.println("File copied using character stream");
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }
+}
 ```
 
 ## assi28
 ```
+import java.io.*;
+
+public class ByteFileCopy {
+    public static void main(String[] args) {
+        try {
+            FileInputStream fis = new FileInputStream("source.txt");
+            FileOutputStream fos = new FileOutputStream("dest_byte.txt");
+
+            int b;
+
+            // Reads byte by byte until the end of the file (-1)
+            while ((b = fis.read()) != -1) {
+                fos.write(b);
+            }
+
+            fis.close();
+            fos.close();
+
+            System.out.println("File copied using byte stream");
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }
+}
 
 ```
 
 ## assi29
 ```
+abstract class Animal {
+    abstract void sound();
+}
 
-```
+interface Test {
+    void show();
+}
 
-## assi30
-```
+class Dog extends Animal implements Test {
+    void sound() {
+        System.out.println("Bark");
+    }
 
+    public void show() {
+        System.out.println("Interface method");
+    }
+}
+
+class Main {
+    public static void main(String args[]) {
+        Dog d = new Dog();
+        d.sound();
+        d.show();
+    }
+}
 ```
+<img width="427" height="145" alt="image" src="https://github.com/user-attachments/assets/7cfac81c-cdc1-43f0-80d3-78b574166442" />
+
+
