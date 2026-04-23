@@ -21,6 +21,42 @@
 [program 11 WAP for Armstrong Number](#assi11)
 
 [program 12 WAP for Palindrome Number](#assi12)
+
+[program 13 WAP for Printing 1–100 using 3 Classes(without thread)](#assi13)
+
+[program 14 WAP for Printing 1–100 using 3 Classes(with thread) ](#assi14)
+
+[program 15 WAP for Synchronised Threads using join() ](#assi15)
+
+[program 16 WAP for Addition of 2 Numbers using Swing](#assi16)
+
+[program 17 WAP for Registration Form + JDBC (Basic) ](#assi17)
+
+[program 18 WAP for Calculator in Swing ](#assi18)
+
+[program 19 WAP for Matrix Addition using Swing](#assi19)
+
+[program 20 WAP for JFrame with 10 Buttons (Shapes) ](#assi20)
+
+[program 21 WAP for Paint Brush (Mouse Event Basic) ](#assi21)
+
+[program 22 WAP for Package with 5 Classes ](#assi22)
+
+[program 23 WAP for Package + Subpackage](#assi23)
+
+[program 24 WAP for Exception Handling](#assi24)
+
+[program 25 WAP for User Defined Exception (Age Check)](#assi25)
+
+[program 26 WAP for File Handling](#assi26)
+
+[program 27 WAP for Inheritance + Interface + Abstract Class](#assi27)
+
+[program 28 WAP for ](#assi28)
+
+[program 29 WAP for ](#assi29)
+
+[program 30 WAP for ](#assi30)
 ## assi1
 ```
 public class Addition {
@@ -438,3 +474,164 @@ class Palindrome {
 
 ```
 <img width="376" height="230" alt="image" src="https://github.com/user-attachments/assets/4f1b28b7-19eb-4083-b75f-162b57e8c86d" />
+
+## assi13
+```
+class A {
+    void print() {
+        for(int i=1;i<=100;i++)
+            System.out.println("A: " + i);
+    }
+}
+class B {
+    void print() {
+        for(int i=1;i<=100;i++)
+            System.out.println("B: " + i);
+    }
+}
+class C {
+    void print() {
+        for(int i=1;i<=100;i++)
+            System.out.println("C: " + i);
+    }
+}
+
+class Main {
+    public static void main(String args[]) {
+        new A().print();
+        new B().print();
+        new C().print();
+    }
+}
+```
+<img width="197" height="717" alt="image" src="https://github.com/user-attachments/assets/35392fbf-5692-4062-b75a-62755ce86084" />
+
+## assi14
+```
+class A extends Thread {
+    public void run() {
+        for(int i=1;i<=100;i++)
+            System.out.println("A: " + i);
+    }
+}
+class B extends Thread {
+    public void run() {
+        for(int i=1;i<=100;i++)
+            System.out.println("B: " + i);
+    }
+}
+class C extends Thread {
+    public void run() {
+        for(int i=1;i<=100;i++)
+            System.out.println("C: " + i);
+    }
+}
+
+class Main {
+    public static void main(String args[]) {
+        new A().start();
+        new B().start();
+        new C().start();
+    }
+}
+```
+<img width="78" height="665" alt="image" src="https://github.com/user-attachments/assets/a984ab85-9a54-497d-950e-9b1531f96653" />
+
+## assi15
+```
+class A extends Thread {
+    public void run() {
+        for(int i=1;i<=5;i++)
+            System.out.println("A: " + i);
+    }
+}
+
+class Main {
+    public static void main(String args[]) throws Exception {
+        A t1 = new A();
+        A t2 = new A();
+        A t3 = new A();
+
+        t1.start();
+        t1.join();
+
+        t2.start();
+        t2.join();
+
+        t3.start();
+    }
+}
+```
+<img width="388" height="525" alt="image" src="https://github.com/user-attachments/assets/39023fee-8981-4ae7-99be-0bf78ae0c238" />
+
+## assi16
+```
+
+```
+
+## assi17
+```
+
+```
+
+## assi18
+```
+
+```
+
+## assi19
+```
+
+```
+
+## assi20
+```
+
+```
+
+## assi21
+```
+
+```
+
+## assi22
+```
+
+```
+
+## assi23
+```
+
+```
+
+## assi24
+```
+
+```
+## assi25
+```
+
+```
+## assi26
+```
+
+```
+## assi27
+```
+
+```
+
+## assi28
+```
+
+```
+
+## assi29
+```
+
+```
+
+## assi30
+```
+
+```
