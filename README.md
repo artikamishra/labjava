@@ -132,6 +132,7 @@ public class Distance {
         cm = cm % 100;
     }
 
+
     void display() {
         System.out.println("Distance = " + m + " m " + cm + " cm " + mm + " mm");
     }
